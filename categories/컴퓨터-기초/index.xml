@@ -1,5 +1,31 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>컴퓨터 기초 on Mogi`s Blog</title><link>https://IngakHwang.github.io/categories/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88/</link><description>Recent content in 컴퓨터 기초 on Mogi`s Blog</description><generator>Hugo</generator><language>ko-kr</language><lastBuildDate>Wed, 27 May 2026 18:13:13 +0900</lastBuildDate><atom:link href="https://IngakHwang.github.io/categories/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88/index.xml" rel="self" type="application/rss+xml"/><item><title>테스트 게시글 3</title><link>https://IngakHwang.github.io/posts/test-post-3/</link><pubDate>Wed, 27 May 2026 18:13:13 +0900</pubDate><guid>https://IngakHwang.github.io/posts/test-post-3/</guid><description>&lt;p&gt;Test Post 3 입니다.&lt;/p&gt;
-&lt;p&gt;이것 저것&lt;/p&gt;
-&lt;p&gt;abc
-123&lt;/p&gt;
-&lt;h1 id="poopy"&gt;Poopy&lt;/h1&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>컴퓨터 기초 on Mogi`s Blog</title><link>https://IngakHwang.github.io/categories/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88/</link><description>Recent content in 컴퓨터 기초 on Mogi`s Blog</description><generator>Hugo</generator><language>ko-kr</language><lastBuildDate>Mon, 01 Jun 2026 21:21:50 +0900</lastBuildDate><atom:link href="https://IngakHwang.github.io/categories/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B8%B0%EC%B4%88/index.xml" rel="self" type="application/rss+xml"/><item><title>컴퓨터 구조 기초 정리</title><link>https://IngakHwang.github.io/posts/%EC%BB%B4%ED%93%A8%ED%84%B0_%EA%B5%AC%EC%A1%B0_%EA%B8%B0%EC%B4%88_%EC%A0%95%EB%A6%AC/</link><pubDate>Mon, 01 Jun 2026 21:21:50 +0900</pubDate><guid>https://IngakHwang.github.io/posts/%EC%BB%B4%ED%93%A8%ED%84%B0_%EA%B5%AC%EC%A1%B0_%EA%B8%B0%EC%B4%88_%EC%A0%95%EB%A6%AC/</guid><description>&lt;h1 id="컴퓨터-구조-기초-정리"&gt;컴퓨터 구조 기초 정리&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;오늘 대화를 바탕으로 정리한 학습 노트&lt;br&gt;
+&amp;ldquo;암기가 아닌 이해&amp;rdquo; — 왜 탄생했는지부터 시작하는 방식으로 학습&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="이-글을-쓴-이유"&gt;이 글을 쓴 이유&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;컴퓨터는 0,1밖에 모르는 데, 어떻게 복잡한 프로그램이 작동하는 것인지, 궁금했고 그 답을 찾아가는 과정을 정리했다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id="목차"&gt;목차&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href="#1-%EC%BB%B4%ED%93%A8%ED%84%B0%EC%9D%98-%EC%96%B4%EC%9B%90"&gt;컴퓨터의 어원&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#2-%EC%99%9C-%EA%B8%B0%EA%B3%84-%EC%BB%B4%ED%93%A8%ED%84%B0%EB%A5%BC-%EB%A7%8C%EB%93%A4%EA%B2%8C-%EB%90%90%EB%82%98"&gt;왜 기계 컴퓨터를 만들게 됐나&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#3-%EB%B6%88-%EB%8C%80%EC%88%98--0%EA%B3%BC-1%EC%9D%98-%ED%83%84%EC%83%9D"&gt;불 대수 — 0과 1의 탄생&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#4-%EB%85%BC%EB%A6%AC-%EA%B2%8C%EC%9D%B4%ED%8A%B8--%EC%A0%84%EA%B8%B0%EB%A1%9C-%EB%85%BC%EB%A6%AC%EB%A5%BC-%EA%B5%AC%ED%98%84%ED%95%98%EB%8B%A4"&gt;논리 게이트 — 전기로 논리를 구현하다&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#5-%EC%A7%84%EA%B3%B5%EA%B4%80--%ED%8A%B8%EB%9E%9C%EC%A7%80%EC%8A%A4%ED%84%B0--cpu"&gt;진공관 → 트랜지스터 → CPU&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#6-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EA%B3%84%EC%B8%B5-%EA%B5%AC%EC%A1%B0"&gt;메모리 계층 구조&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#7-%EC%A0%84%EC%B2%B4-%ED%9D%90%EB%A6%84-%EC%9A%94%EC%95%BD"&gt;전체 흐름 요약&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id="1-컴퓨터의-어원"&gt;1. 컴퓨터의 어원&lt;/h2&gt;
+&lt;h3 id="어원"&gt;어원&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Computer&lt;/strong&gt; = Compute(계산하다) + er(하는 사람)&lt;/li&gt;
+&lt;li&gt;1600년대부터 &lt;strong&gt;계산을 전문으로 하는 사람&lt;/strong&gt;을 &amp;ldquo;computer&amp;quot;라고 불렀음&lt;/li&gt;
+&lt;li&gt;천문학자, 항해사, 수학자들이 복잡한 수치 계산을 담당하는 직업이었음&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="핵심"&gt;핵심&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;컴퓨터는 원래 &lt;strong&gt;기계가 아니라 사람&lt;/strong&gt;이었다&lt;/p&gt;</description></item></channel></rss>
