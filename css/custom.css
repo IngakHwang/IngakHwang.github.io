@@ -1,0 +1,54 @@
+/* 폰트 및 배경 기본 레이아웃 적용 */
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+/* 코드, 날짜, 태그는 JetBrains Mono 적용 */
+code, .post-meta, .nav-logo, .post-tag, .entry-meta {
+    font-family: 'JetBrains Mono', monospace !important;
+}
+
+/* 네비게이션 바 고정 및 반투명 blur 처리 (Claude 요구사항 1번) */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(28, 28, 30, 0.8) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* 로고 강조색 포인트 처리 */
+.logo a {
+    font-weight: 700;
+}
+.logo a::first-word {
+    color: #6c8cff !important;
+}
+
+/* 메인 히어로 섹션(homeInfo) 스타일 고도화 */
+.first-entry {
+    background: linear-gradient(135deg, rgba(108, 140, 255, 0.04) 0%, transparent 60%);
+    border-radius: 16px;
+    padding: 40px !important;
+    margin-bottom: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.first-entry h1 {
+    font-size: 28px !important;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+}
+
+/* 카테고리/태그 배지 디자인 커스텀 (Claude 요구사항 3번) */
+.post-tags a {
+    background: rgba(108, 140, 255, 0.12) !important;
+    color: #6c8cff !important;
+    border-radius: 6px !important;
+    padding: 4px 10px !important;
+    font-size: 11px !important;
+    font-weight: 500;
+    text-transform: uppercase;
+}
