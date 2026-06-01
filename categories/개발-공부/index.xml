@@ -1,1 +1,50 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>개발-공부 on Mogi`s Blog</title><link>https://IngakHwang.github.io/categories/%EA%B0%9C%EB%B0%9C-%EA%B3%B5%EB%B6%80/</link><description>Recent content in 개발-공부 on Mogi`s Blog</description><generator>Hugo</generator><language>ko-kr</language><lastBuildDate>Thu, 28 May 2026 14:49:50 +0900</lastBuildDate><atom:link href="https://IngakHwang.github.io/categories/%EA%B0%9C%EB%B0%9C-%EA%B3%B5%EB%B6%80/index.xml" rel="self" type="application/rss+xml"/><item><title>Linux cheat sheet</title><link>https://IngakHwang.github.io/posts/linux-cheat-sheet/</link><pubDate>Thu, 28 May 2026 14:49:50 +0900</pubDate><guid>https://IngakHwang.github.io/posts/linux-cheat-sheet/</guid><description>Linux에서 사용을 많이 하는 단축어 공부</description></item><item><title>테스트 게시글 3</title><link>https://IngakHwang.github.io/posts/test-post-3/</link><pubDate>Wed, 27 May 2026 18:13:13 +0900</pubDate><guid>https://IngakHwang.github.io/posts/test-post-3/</guid><description>Hugo 블로그</description></item><item><title>Test Post 2</title><link>https://IngakHwang.github.io/posts/test-post-2/</link><pubDate>Wed, 27 May 2026 18:13:09 +0900</pubDate><guid>https://IngakHwang.github.io/posts/test-post-2/</guid><description>Hugo 블로그에 한국어 폰트와 목차 기능을 추가하는 과정 기록</description></item><item><title>테스트 게시글 1</title><link>https://IngakHwang.github.io/posts/test-post-1/</link><pubDate>Wed, 27 May 2026 18:11:50 +0900</pubDate><guid>https://IngakHwang.github.io/posts/test-post-1/</guid><description>Hugo 블로그에 한국어 폰트와 목차 기능을 추가하는 과정 기록</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>개발 공부 on Mogi`s Blog</title><link>https://IngakHwang.github.io/categories/%EA%B0%9C%EB%B0%9C-%EA%B3%B5%EB%B6%80/</link><description>Recent content in 개발 공부 on Mogi`s Blog</description><generator>Hugo</generator><language>ko-kr</language><lastBuildDate>Thu, 28 May 2026 14:49:50 +0900</lastBuildDate><atom:link href="https://IngakHwang.github.io/categories/%EA%B0%9C%EB%B0%9C-%EA%B3%B5%EB%B6%80/index.xml" rel="self" type="application/rss+xml"/><item><title>Linux cheat sheet</title><link>https://IngakHwang.github.io/posts/linux-cheat-sheet/</link><pubDate>Thu, 28 May 2026 14:49:50 +0900</pubDate><guid>https://IngakHwang.github.io/posts/linux-cheat-sheet/</guid><description>&lt;h1 id="현재-위치-확인"&gt;현재 위치 확인&lt;/h1&gt;
+&lt;h2 id="현재-디렉토리-확인"&gt;현재 디렉토리 확인&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;pwd&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$ pwd
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; /c/Users/중진공6/Desktop/test
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="이동"&gt;이동&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;cd&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id="절대-경로absolute-path"&gt;절대 경로(Absolute Path)&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;현재 내위치가 어디든, 최상위 뿌리 (Root, &lt;code&gt;/&lt;/code&gt;) 디렉토리 부터 시작하여 목표 폴더까지 모든 경로를 적는 방식&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;맨 앞에 루트를 의미하는 슬래시로 시작&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$ cd Desktop/test/linux_pracitc
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="상대-경로"&gt;상대 경로&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;현재 내가 머물고 있는 위치를 기준으로 목표 폴더가 어디에 있는지 표시하는 방식&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;현재 폴더(&lt;code&gt;.&lt;/code&gt;)나 상위 폴더(&lt;code&gt;..&lt;/code&gt;) 기호를 적극 사용해야 함&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;code&gt;../project&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$ cd .
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$ cd ..
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="현재-위치의-파일-폴더-목록-보기"&gt;현재 위치의 파일 폴더 목록 보기&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;ls&lt;/code&gt;&lt;/p&gt;</description></item><item><title>테스트 게시글 1</title><link>https://IngakHwang.github.io/posts/test-post-1/</link><pubDate>Wed, 27 May 2026 18:11:50 +0900</pubDate><guid>https://IngakHwang.github.io/posts/test-post-1/</guid><description>&lt;p&gt;테스트 게시글1 입니다.&lt;/p&gt;
+&lt;h1 id="제목1"&gt;제목1&lt;/h1&gt;
+&lt;p&gt;여기는 본문 어쩌구&lt;/p&gt;
+&lt;h2 id="제목2"&gt;제목2&lt;/h2&gt;
+&lt;p&gt;여기도 본문 어쩌구 저쩌구&lt;/p&gt;
+&lt;h3 id="제목3"&gt;제목3&lt;/h3&gt;
+&lt;h2 id="얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구얼씨구-절씨구"&gt;얼씨구 절씨구
+얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구얼씨구 절씨구&lt;/h2&gt;
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;하나&lt;/li&gt;
+&lt;li&gt;둘&lt;/li&gt;
+&lt;li&gt;서이&lt;/li&gt;
+&lt;li&gt;너이&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;한놈&lt;/li&gt;
+&lt;li&gt;두식이&lt;/li&gt;
+&lt;li&gt;석삼&lt;/li&gt;
+&lt;li&gt;너구리&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="제목-또있음"&gt;제목 또있음&lt;/h3&gt;
+&lt;p&gt;아침에는 교양을 먹어야지 도시락을 까쳐먹고 있어&lt;/p&gt;</description></item></channel></rss>
