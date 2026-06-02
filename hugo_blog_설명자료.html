@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hugo 블로그 구축 설명자료</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  :root {
+    --bg: #0f1117;
+    --bg2: #1a1d27;
+    --bg3: #22263a;
+    --border: #2e3350;
+    --text: #e8eaf0;
+    --text2: #9aa0bc;
+    --text3: #6b7194;
+    --blue: #4f8ef7;
+    --blue-dim: #1e3a6e;
+    --teal: #38c9a0;
+    --teal-dim: #0e3d2e;
+    --purple: #a78bfa;
+    --purple-dim: #2e1f5e;
+    --amber: #f59e0b;
+    --amber-dim: #3d2800;
+    --red: #f87171;
+    --red-dim: #3d1212;
+    --green: #4ade80;
+    --green-dim: #0d3320;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 15px;
+  }
+
+  .page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 32px;
+  }
+
+  /* 헤더 */
+  .doc-header {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 40px;
+    margin-bottom: 60px;
+  }
+
+  .doc-tag {
+    display: inline-block;
+    background: var(--blue-dim);
+    color: var(--blue);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: 1px solid var(--blue);
+    margin-bottom: 16px;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.5px;
+  }
+
+  .doc-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.3;
+    margin-bottom: 12px;
+  }
+
+  .doc-subtitle {
+    font-size: 16px;
+    color: var(--text2);
+    font-weight: 300;
+  }
+
+  /* 섹션 */
+  .section {
+    margin-bottom: 72px;
+  }
+
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text3);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .section-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 28px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* 개념 카드 */
+  .concept-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .concept-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+  }
+
+  .concept-card.full {
+    grid-column: 1 / -1;
+  }
+
+  .concept-icon {
+    font-size: 22px;
+    margin-bottom: 12px;
+  }
+
+  .concept-name {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+
+  .concept-role {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 2px 10px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 12px;
+  }
+
+  .role-blue { background: var(--blue-dim); color: var(--blue); }
+  .role-teal { background: var(--teal-dim); color: var(--teal); }
+  .role-purple { background: var(--purple-dim); color: var(--purple); }
+  .role-amber { background: var(--amber-dim); color: var(--amber); }
+
+  .concept-desc {
+    font-size: 14px;
+    color: var(--text2);
+    line-height: 1.7;
+  }
+
+  .concept-analogy {
+    margin-top: 12px;
+    padding: 10px 14px;
+    background: var(--bg3);
+    border-radius: 8px;
+    font-size: 13px;
+    color: var(--text3);
+    border-left: 3px solid var(--border);
+  }
+
+  .concept-analogy strong {
+    color: var(--text2);
+  }
+
+  /* 코드 블록 */
+  .code-block {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--text);
+    margin: 12px 0;
+    line-height: 1.8;
+    overflow-x: auto;
+  }
+
+  .code-block .comment { color: var(--text3); }
+  .code-block .cmd { color: var(--teal); }
+  .code-block .path { color: var(--amber); }
+  .code-block .arrow { color: var(--blue); }
+
+  /* 흐름도 */
+  .flow-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .flow-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px;
+    position: relative;
+  }
+
+  .flow-step.highlight {
+    border-color: var(--teal);
+    background: linear-gradient(90deg, var(--teal-dim) 0%, var(--bg2) 100%);
+  }
+
+  .flow-step.auto {
+    border-color: var(--purple);
+    background: linear-gradient(90deg, var(--purple-dim) 0%, var(--bg2) 100%);
+  }
+
+  .flow-num {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .num-manual { background: var(--blue-dim); color: var(--blue); border: 1px solid var(--blue); }
+  .num-auto { background: var(--purple-dim); color: var(--purple); border: 1px solid var(--purple); }
+
+  .flow-content { flex: 1; }
+
+  .flow-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .flow-desc {
+    font-size: 13px;
+    color: var(--text2);
+    line-height: 1.6;
+  }
+
+  .flow-badge {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 20px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+
+  .badge-manual { background: var(--blue-dim); color: var(--blue); }
+  .badge-auto { background: var(--purple-dim); color: var(--purple); }
+
+  .flow-arrow {
+    text-align: center;
+    color: var(--text3);
+    font-size: 18px;
+    padding: 2px 0;
+  }
+
+  /* 비교 테이블 */
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+  }
+
+  .compare-table th {
+    background: var(--bg3);
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text2);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .compare-table td {
+    padding: 12px 16px;
+    font-size: 14px;
+    color: var(--text2);
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+
+  .compare-table tr:last-child td { border-bottom: none; }
+
+  .compare-table .label {
+    color: var(--text);
+    font-weight: 500;
+    width: 160px;
+  }
+
+  .good { color: var(--green); }
+  .bad { color: var(--red); }
+  .neutral { color: var(--amber); }
+
+  /* 개선점 박스 */
+  .insight-box {
+    background: var(--bg2);
+    border: 1px solid var(--teal);
+    border-radius: 12px;
+    padding: 24px;
+    margin: 24px 0;
+  }
+
+  .insight-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--teal);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .insight-body {
+    font-size: 14px;
+    color: var(--text2);
+    line-height: 1.7;
+  }
+
+  /* submodule 설명 */
+  .submodule-visual {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    margin: 16px 0;
+  }
+
+  .repo-box {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    margin: 8px 0;
+  }
+
+  .repo-box.private { border-color: var(--amber); }
+  .repo-box.public { border-color: var(--blue); }
+  .repo-box.theme { border-color: var(--purple); }
+
+  .repo-label {
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .repo-label.private { color: var(--amber); }
+  .repo-label.public { color: var(--blue); }
+  .repo-label.theme { color: var(--purple); }
+
+  .repo-files {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--text2);
+    line-height: 1.9;
+  }
+
+  .submodule-tag {
+    display: inline-block;
+    background: var(--purple-dim);
+    color: var(--purple);
+    font-size: 11px;
+    padding: 1px 7px;
+    border-radius: 4px;
+    border: 1px solid var(--purple);
+    margin-left: 8px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* 장단점 */
+  .pros-cons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 16px 0;
+  }
+
+  .pros, .cons {
+    background: var(--bg2);
+    border-radius: 10px;
+    padding: 20px;
+  }
+
+  .pros { border: 1px solid var(--green); }
+  .cons { border: 1px solid var(--red); }
+
+  .pros-title { color: var(--green); font-weight: 700; font-size: 14px; margin-bottom: 12px; }
+  .cons-title { color: var(--red); font-weight: 700; font-size: 14px; margin-bottom: 12px; }
+
+  .pros-item, .cons-item {
+    font-size: 13px;
+    color: var(--text2);
+    padding: 6px 0;
+    border-bottom: 1px solid var(--border);
+    line-height: 1.6;
+  }
+
+  .pros-item:last-child, .cons-item:last-child { border-bottom: none; }
+
+  /* 푸터 */
+  .doc-footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--text3);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  /* 구분선 */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 32px 0;
+  }
+
+  p { margin-bottom: 12px; color: var(--text2); font-size: 14px; }
+  strong { color: var(--text); font-weight: 500; }
+
+  .highlight-text {
+    background: var(--amber-dim);
+    color: var(--amber);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- 헤더 -->
+  <div class="doc-header">
+    <div class="doc-tag">Hugo Blog Workflow</div>
+    <div class="doc-title">Hugo 블로그 구축 및<br>자동화 배포 설명자료</div>
+    <div class="doc-subtitle">Git · GitHub · Hugo · Git Submodule · GitHub Actions</div>
+  </div>
+
+  <!-- PART 1: 핵심 개념 -->
+  <div class="section">
+    <div class="section-label">Part 01</div>
+    <div class="section-title">핵심 도구 4가지</div>
+
+    <div class="concept-grid">
+      <div class="concept-card">
+        <div class="concept-icon">🗂</div>
+        <div class="concept-name">Git</div>
+        <div class="concept-role role-blue">버전 관리 도구</div>
+        <div class="concept-desc">
+          내 컴퓨터에 설치하는 프로그램. 파일의 변경 이력을 추적하고, 로컬 컴퓨터와 GitHub 사이에서 파일을 주고받는 역할을 한다.
+        </div>
+        <div class="concept-analogy"><strong>비유:</strong> 타임머신 + 택배 서비스. 언제든 과거로 돌아갈 수 있고, 파일을 원격 서버로 보낼 수 있다.</div>
+      </div>
+
+      <div class="concept-card">
+        <div class="concept-icon">☁️</div>
+        <div class="concept-name">GitHub</div>
+        <div class="concept-role role-teal">클라우드 저장소 + 웹서버</div>
+        <div class="concept-desc">
+          Git 저장소를 인터넷에 올려두는 플랫폼. GitHub Pages 기능을 통해 저장소 안의 HTML 파일을 웹사이트로 호스팅해준다.
+        </div>
+        <div class="concept-analogy"><strong>비유:</strong> 클라우드 창고 + 무료 웹서버. 파일을 올려두면 전 세계에서 접근 가능하다.</div>
+      </div>
+
+      <div class="concept-card">
+        <div class="concept-icon">⚙️</div>
+        <div class="concept-name">Hugo</div>
+        <div class="concept-role role-purple">정적 사이트 생성기</div>
+        <div class="concept-desc">
+          Markdown(.md) 파일을 읽어서 HTML/CSS/JS로 변환해주는 도구. 테마(디자인)와 글 내용(md)을 조합해서 완성된 웹페이지를 만들어낸다. 글이 100개여도 1~2초 안에 전체 빌드가 끝날 만큼 빠르다.
+        </div>
+        <div class="concept-analogy"><strong>비유:</strong> 출판 기계. 원고(md)와 디자인 틀(테마)을 넣으면 완성된 책(HTML)이 나온다.</div>
+      </div>
+
+      <div class="concept-card">
+        <div class="concept-icon">🔗</div>
+        <div class="concept-name">Git Submodule</div>
+        <div class="concept-role role-amber">저장소 간 연결 기술</div>
+        <div class="concept-desc">
+          A 저장소 안에 B 저장소를 포함시키는 Git 기능. 폴더처럼 보이지만 실제로는 별개의 저장소와 연결되어 있어, 해당 폴더 안에서 push하면 연결된 저장소로 바로 올라간다.
+        </div>
+        <div class="concept-analogy"><strong>비유:</strong> 바로가기 아이콘. 겉으로는 폴더처럼 보이지만 실제로는 다른 곳을 가리킨다.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PART 2: 강사님 미션 구조 -->
+  <div class="section">
+    <div class="section-label">Part 02</div>
+    <div class="section-title">강사님 미션: 기본 구조와 작동 방식</div>
+
+    <p>강사님이 제시한 구조는 <strong>로컬에 Hugo를 설치</strong>하고, <strong>두 개의 저장소</strong>를 운영하는 방식이다.</p>
+
+    <div class="submodule-visual">
+      <div class="repo-label" style="color: var(--text2); font-size: 13px; margin-bottom: 16px;">저장소 구조</div>
+      <div class="repo-box private">
+        <div class="repo-label private">블로그 repo (Private) — 원고 보관</div>
+        <div class="repo-files">
+├── content/posts/my-article.md  ← 글 원고<br>
+├── themes/PaperMod/ <span class="submodule-tag">submodule</span>  ← 테마<br>
+├── config.toml  ← Hugo 설정<br>
+└── public/ <span class="submodule-tag">submodule</span>  ← 빌드 결과물 (아래 repo와 연결)
+        </div>
+      </div>
+      <div style="text-align:center; color: var(--text3); padding: 6px; font-size: 18px;">↕ submodule 연결</div>
+      <div class="repo-box public">
+        <div class="repo-label public">[ID].github.io repo (Public) — 웹사이트 배포</div>
+        <div class="repo-files">
+├── index.html<br>
+├── css/style.css<br>
+└── posts/my-article/index.html  ← Hugo가 만든 HTML
+        </div>
+      </div>
+    </div>
+
+    <p style="margin-top: 16px;"><strong>submodule이 핵심 역할을 하는 이유:</strong> <span class="highlight-text">public/</span> 폴더가 <span class="highlight-text">[ID].github.io</span> repo와 연결되어 있기 때문에, public/ 안에서 push하면 자동으로 올바른 저장소에 올라간다. 없었다면 빌드 결과물을 매번 수동으로 복사해서 다른 저장소에 따로 push해야 했을 것이다.</p>
+
+    <hr class="divider">
+
+    <div class="section-label" style="margin-top: 0;">기본 구조 작동 흐름</div>
+    <br>
+    <div class="flow-container">
+      <div class="flow-step highlight">
+        <div class="flow-num num-manual">1</div>
+        <div class="flow-content">
+          <div class="flow-title">md 파일 작성 <span class="flow-badge badge-manual">직접</span></div>
+          <div class="flow-desc">content/posts/ 안에 Markdown으로 글을 작성한다.</div>
+        </div>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step highlight">
+        <div class="flow-num num-manual">2</div>
+        <div class="flow-content">
+          <div class="flow-title">hugo build 실행 <span class="flow-badge badge-manual">직접</span></div>
+          <div class="flow-desc">로컬에 설치된 Hugo가 md 파일 전체를 읽고, 테마를 입혀 HTML/CSS/JS로 변환한다. 결과물은 public/ 폴더에 저장된다. (항상 전체 빌드)</div>
+        </div>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step highlight">
+        <div class="flow-num num-manual">3</div>
+        <div class="flow-content">
+          <div class="flow-title">public/ 에서 git push <span class="flow-badge badge-manual">직접 (submodule 작동)</span></div>
+          <div class="flow-desc">cd public 후 git push → submodule 덕분에 [ID].github.io repo에 HTML이 업로드된다.</div>
+          <div class="code-block">
+<span class="cmd">$ cd public</span><br>
+<span class="cmd">$ git add . && git commit -m "새 글 추가"</span><br>
+<span class="cmd">$ git push origin main</span>
+          </div>
+        </div>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step highlight">
+        <div class="flow-num num-manual">4</div>
+        <div class="flow-content">
+          <div class="flow-title">블로그 repo에 git push <span class="flow-badge badge-manual">직접 (원고 백업)</span></div>
+          <div class="flow-desc">cd .. 후 git push → md 원고를 Private repo에 백업한다. 웹사이트 배포와는 무관한 작업이다.</div>
+        </div>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step auto">
+        <div class="flow-num num-auto">5</div>
+        <div class="flow-content">
+          <div class="flow-title">GitHub Pages 자동 감지 및 배포 <span class="flow-badge badge-auto">자동</span></div>
+          <div class="flow-desc">[ID].github.io repo에 변경이 감지되면 GitHub Pages가 1~2분 안에 웹사이트를 자동 갱신한다.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="insight-box" style="margin-top: 24px;">
+      <div class="insight-title">⚡ 기본 구조의 문제점</div>
+      <div class="insight-body">
+        <strong>문제 1.</strong> Hugo를 내 컴퓨터에 반드시 설치해야 한다. 컴퓨터가 바뀌면 다시 환경을 세팅해야 한다.<br><br>
+        <strong>문제 2.</strong> push를 2번 해야 한다. public/ 에서 한 번, 블로그 루트에서 한 번 — 글 하나 올릴 때마다 반복되는 작업이다.
+      </div>
+    </div>
+  </div>
+
+  <!-- PART 3: 개선된 구조 -->
+  <div class="section">
+    <div class="section-label">Part 03</div>
+    <div class="section-title">개선된 구조: GitHub Actions 자동화</div>
+
+    <p>위 두 가지 문제를 해결하기 위해 고안한 구조. <strong>Hugo 빌드를 내 컴퓨터가 아닌 GitHub 서버에서 처리</strong>하도록 자동화한다.</p>
+
+    <div class="submodule-visual">
+      <div class="repo-label" style="color: var(--text2); font-size: 13px; margin-bottom: 16px;">개선된 저장소 구조</div>
+      <div class="repo-box private">
+        <div class="repo-label private">블로그 repo (Private) — 원고 + 자동화 설정</div>
+        <div class="repo-files">
+├── content/posts/my-article.md  ← 글 원고<br>
+├── themes/PaperMod/ <span class="submodule-tag">submodule</span>  ← 테마<br>
+├── config.toml<br>
+└── .github/workflows/deploy.yml  ← GitHub Actions 설정 파일
+        </div>
+      </div>
+      <div style="padding: 12px 20px; background: var(--bg3); border-radius: 8px; margin: 8px 0; font-size: 13px; color: var(--text2);">
+        ✦ public/ 폴더가 로컬에 없다. GitHub Actions 서버가 빌드 후 직접 아래 repo에 push한다.
+      </div>
+      <div class="repo-box public">
+        <div class="repo-label public">[ID].github.io repo (Public) — 빌드 결과물 자동 수신</div>
+        <div class="repo-files">
+├── index.html<br>
+└── posts/my-article/index.html
+        </div>
+      </div>
+    </div>
+
+    <p style="margin-top: 16px;"><strong>PAT(Personal Access Token)</strong>는 GitHub Actions가 Private repo에서 빌드한 결과를 Public repo에 push할 때 필요한 권한 열쇠다. 한 번 발급해서 저장소 설정에 등록해두면 이후 자동으로 사용된다.</p>
+
+    <hr class="divider">
+
+    <div class="section-label" style="margin-top: 0;">개선된 구조 작동 흐름</div>
+    <br>
+    <div class="flow-container">
+      <div class="flow-step highlight">
+        <div class="flow-num num-manual">1</div>
+        <div class="flow-content">
+          <div class="flow-title">md 파일 작성 후 git push 1번 <span class="flow-badge badge-manual">직접</span></div>
+          <div class="flow-desc">글을 쓰고 Private repo에 push한다. 이게 전부다. Hugo 빌드, public/ 폴더 이동, 두 번째 push — 전부 사라진다.</div>
+          <div class="code-block">
+<span class="cmd">$ git add . && git commit -m "새 글 작성"</span><br>
+<span class="cmd">$ git push origin main</span><br>
+<span class="comment">← 이게 끝. 나머지는 자동</span>
+          </div>
+        </div>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step auto">
+        <div class="flow-num num-auto">2</div>
+        <div class="flow-content">
+          <div class="flow-title">GitHub Actions 자동 실행 <span class="flow-badge badge-auto">자동</span></div>
+          <div class="flow-desc">Private repo에 push 감지 → GitHub 서버에 가상환경(Ubuntu) 생성 → Hugo 임시 설치 → md 파일 전체 가져오기 → hugo build 실행 → HTML 생성</div>
+        </div>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step auto">
+        <div class="flow-num num-auto">3</div>
+        <div class="flow-content">
+          <div class="flow-title">Public repo에 자동 push <span class="flow-badge badge-auto">자동</span></div>
+          <div class="flow-desc">GitHub Actions가 PAT를 사용해서 빌드 결과물을 [ID].github.io repo에 직접 push한다. 기존에 내가 직접 하던 "cd public → git push" 과정을 서버가 대신한다.</div>
+        </div>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step auto">
+        <div class="flow-num num-auto">4</div>
+        <div class="flow-content">
+          <div class="flow-title">GitHub Pages 자동 배포 <span class="flow-badge badge-auto">자동</span></div>
+          <div class="flow-desc">Public repo 변경 감지 → 1~2분 안에 웹사이트 갱신 완료</div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="section-label" style="margin-top: 0;">기본 구조 vs 개선된 구조 비교</div>
+    <br>
+    <table class="compare-table">
+      <tr>
+        <th>항목</th>
+        <th>기본 구조 (강사님 미션)</th>
+        <th>개선된 구조 (GitHub Actions)</th>
+      </tr>
+      <tr>
+        <td class="label">Hugo 설치</td>
+        <td><span class="bad">내 컴퓨터에 필요</span></td>
+        <td><span class="good">불필요 (서버가 처리)</span></td>
+      </tr>
+      <tr>
+        <td class="label">push 횟수</td>
+        <td><span class="bad">2번 (public/ + 블로그 루트)</span></td>
+        <td><span class="good">1번 (블로그 루트만)</span></td>
+      </tr>
+      <tr>
+        <td class="label">빌드 위치</td>
+        <td>내 컴퓨터</td>
+        <td>GitHub 서버</td>
+      </tr>
+      <tr>
+        <td class="label">어느 기기서든 작성</td>
+        <td><span class="bad">Hugo 설치된 기기만</span></td>
+        <td><span class="good">어느 기기서든 가능</span></td>
+      </tr>
+      <tr>
+        <td class="label">로컬 미리보기</td>
+        <td><span class="good">가능 (hugo server)</span></td>
+        <td><span class="bad">불가 (push 후 확인)</span></td>
+      </tr>
+      <tr>
+        <td class="label">초기 설정 난이도</td>
+        <td><span class="good">비교적 단순</span></td>
+        <td><span class="neutral">PAT + yml 파일 설정 필요</span></td>
+      </tr>
+      <tr>
+        <td class="label">오류 발생 시</td>
+        <td><span class="good">터미널에서 바로 확인</span></td>
+        <td><span class="neutral">GitHub Actions 로그 확인 필요</span></td>
+      </tr>
+    </table>
+
+    <div class="pros-cons">
+      <div class="pros">
+        <div class="pros-title">✦ 개선된 구조의 장점</div>
+        <div class="pros-item">Hugo 로컬 설치 불필요 — 환경에 독립적</div>
+        <div class="pros-item">push 1번으로 배포까지 자동 완성</div>
+        <div class="pros-item">GitHub 웹에서 md 편집 후 push만 해도 배포됨</div>
+        <div class="pros-item">컴퓨터가 바뀌어도 세팅 불필요</div>
+      </div>
+      <div class="cons">
+        <div class="cons-title">✦ 개선된 구조의 단점</div>
+        <div class="cons-item">PAT 발급 및 주기적 갱신 필요</div>
+        <div class="cons-item">로컬 미리보기 불가 — push 후에야 확인</div>
+        <div class="cons-item">yml 설정 파일 작성 필요 (초기 1회)</div>
+        <div class="cons-item">빌드 실패 시 GitHub 로그에서 디버깅</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 푸터 -->
+  <div class="doc-footer">
+    <span>Hugo Blog Workflow 설명자료</span>
+    <span>Git · GitHub · Hugo · Submodule · GitHub Actions</span>
+  </div>
+
+</div>
+</body>
+</html>
